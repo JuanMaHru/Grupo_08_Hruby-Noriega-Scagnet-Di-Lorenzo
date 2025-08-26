@@ -1,6 +1,6 @@
 # Grupo08_
 
 ## Integrantes
-Noriega -
-Hruby -
-Di Lorenzo.
+- Noriega Pedro
+- Hruby Juan
+- Di Lorenzo Juan
