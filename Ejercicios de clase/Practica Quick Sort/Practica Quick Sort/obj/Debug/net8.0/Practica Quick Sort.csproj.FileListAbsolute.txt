@@ -1,0 +1,15 @@
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.AssemblyInfoInputs.cache
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.AssemblyInfo.cs
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.csproj.CoreCompileInputs.cache
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.sourcelink.json
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\bin\Debug\net8.0\Practica Quick Sort.exe
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\bin\Debug\net8.0\Practica Quick Sort.deps.json
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\bin\Debug\net8.0\Practica Quick Sort.runtimeconfig.json
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\bin\Debug\net8.0\Practica Quick Sort.dll
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\bin\Debug\net8.0\Practica Quick Sort.pdb
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.dll
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\refint\Practica Quick Sort.dll
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.pdb
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\Practica Quick Sort.genruntimeconfig.cache
+C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Ejercicios de clase\Practica Quick Sort\Practica Quick Sort\obj\Debug\net8.0\ref\Practica Quick Sort.dll
