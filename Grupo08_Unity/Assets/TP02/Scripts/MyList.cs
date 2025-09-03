@@ -1,41 +1,19 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace MyLinkedList
 {
-    internal sealed class MyNode<T>
-    {
-        public T Value;
-        public MyNode<T> Next;
-        public MyNode<T> Prev;
-
-        public MyNode(T value, MyNode<T> prev = null, MyNode<T> next = null)
-        {
-            Value = value;
-            Prev = prev;
-            Next = next;
-        }
-
-        public bool IsEquals(T other)
-        {
-            if (ReferenceEquals(Value, null))
-                return ReferenceEquals(other, null);
-            return EqualityComparer<T>.Default.Equals(Value, other);
-        }
-
-        public override string ToString() => Value?.ToString() ?? "null";
-    }
-
     public class MyList<T> : IEnumerable<T>
     {
-        private MyNode<T> root; // primer nodo
-        private MyNode<T> tail; // �ltimo nodo
+        private MyNode<T> root;  // Primer nodo
+        private MyNode<T> tail;  // Último nodo
 
         public int Count { get; private set; }
 
         public bool IsEmpty() => Count == 0;
 
+        // Agrega un único elemento al final de la lista
         public void Add(T value)
         {
             var node = new MyNode<T>(value);
@@ -52,6 +30,7 @@ namespace MyLinkedList
             Count++;
         }
 
+        // Agrega todos los elementos de otra lista MyList<T>
         public void AddRange(MyList<T> values)
         {
             if (values == null) throw new ArgumentNullException(nameof(values));
@@ -59,6 +38,7 @@ namespace MyLinkedList
                 Add(v);
         }
 
+        // Agrega todos los elementos de un array
         public void AddRange(T[] values)
         {
             if (values == null) throw new ArgumentNullException(nameof(values));
@@ -66,6 +46,7 @@ namespace MyLinkedList
                 Add(values[i]);
         }
 
+        // Remueve la primera ocurrencia de un valor
         public bool Remove(T value)
         {
             var node = FindNodeByValue(value);
@@ -74,18 +55,23 @@ namespace MyLinkedList
             return true;
         }
 
+        // Remueve un nodo en un índice específico
         public void RemoveAt(int index)
         {
             var node = GetNodeAt(index);
             Unlink(node);
         }
 
+        // Inserta un elemento en un índice específico
         public void Insert(int index, T value)
         {
             if (index < 0 || index > Count)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
+            // Insertar al final → equivalente a Add()
             if (index == Count) { Add(value); return; }
+
+            // Insertar al inicio
             if (index == 0)
             {
                 var newNode = new MyNode<T>(value, null, root);
@@ -96,6 +82,7 @@ namespace MyLinkedList
                 return;
             }
 
+            // Insertar en el medio
             var current = GetNodeAt(index);
             var prev = current.Prev;
             var node = new MyNode<T>(value, prev, current);
@@ -104,22 +91,22 @@ namespace MyLinkedList
             Count++;
         }
 
+        // Limpia completamente la lista
         public void Clear()
         {
-            // romper enlaces para ayudar al GC
             var cur = root;
             while (cur != null)
             {
                 var next = cur.Next;
                 cur.Prev = null;
                 cur.Next = null;
-                cur.Value = default;
                 cur = next;
             }
             root = tail = null;
             Count = 0;
         }
 
+        // Indexador para acceder por índice
         public T this[int index]
         {
             get => GetNodeAt(index).Value;
@@ -130,11 +117,12 @@ namespace MyLinkedList
             }
         }
 
+        // Representación en string de la lista
         public override string ToString()
         {
             if (IsEmpty()) return "[]";
             var cur = root;
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            var sb = new System.Text.StringBuilder();
             sb.Append('[');
             while (cur != null)
             {
@@ -146,6 +134,9 @@ namespace MyLinkedList
             return sb.ToString();
         }
 
+        // --------------------- MÉTODOS PRIVADOS ---------------------
+
+        // Busca un nodo por valor
         private MyNode<T> FindNodeByValue(T value)
         {
             var cur = root;
@@ -157,12 +148,12 @@ namespace MyLinkedList
             return null;
         }
 
+        // Obtiene un nodo en un índice específico (optimizado: head/tail)
         private MyNode<T> GetNodeAt(int index)
         {
             if (index < 0 || index >= Count)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
-            // Optimizaci�n: desde el extremo m�s cercano
             if (index <= Count / 2)
             {
                 var cur = root;
@@ -177,6 +168,7 @@ namespace MyLinkedList
             }
         }
 
+        // Desconecta un nodo de la lista
         private void Unlink(MyNode<T> node)
         {
             var prev = node.Prev;
@@ -186,11 +178,10 @@ namespace MyLinkedList
             if (next != null) next.Prev = prev; else tail = prev;
 
             node.Next = node.Prev = null;
-            node.Value = default;
             Count--;
         }
 
-        // Para poder usar foreach (no es obligatorio, pero ayuda mucho)
+        // Permite usar foreach en la lista
         public IEnumerator<T> GetEnumerator()
         {
             var cur = root;
@@ -200,6 +191,7 @@ namespace MyLinkedList
                 cur = cur.Next;
             }
         }
+
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
