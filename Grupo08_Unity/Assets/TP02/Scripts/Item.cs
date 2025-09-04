@@ -1,17 +1,15 @@
-using UnityEngine;
+using System;
 
-public enum ItemRarity { Common, Uncommon, Rare, Epic, Legendary }
-public enum ItemType { Consumable, Weapon, Armor, Material, Quest }
+public enum Rarity { Common, Uncommon, Rare, Epic, Legendary }
+public enum ItemType { Weapon, Armor, Consumable, Material, Misc }
 
-[System.Serializable]
+[Serializable]
 public class Item
 {
-    public int ID;
-    public string Nombre;
-    public int Precio;
-    public ItemRarity Rareza;
-    public ItemType Tipo;
-    public Sprite Sprite;
-
-    public override string ToString() => $"{ID} - {Nombre} (${Precio}) [{Rareza} {Tipo}]";
+    public int Id;
+    public string Name;
+    public int Price;
+    public Rarity Rarity;
+    public ItemType Type;
+    // opcional: public string Description;
 }

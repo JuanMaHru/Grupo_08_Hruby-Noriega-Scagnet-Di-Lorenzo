@@ -1,40 +1,33 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+using System;
 
 public class ItemSlotUI : MonoBehaviour, IPointerClickHandler
 {
-    [Header("Refs UI")]
-    [SerializeField] private Image icon;
-    [SerializeField] private TMP_Text nameText;
-    [SerializeField] private TMP_Text priceText;
-    [SerializeField] private TMP_Text qtyText; // opcional en inventario
+    public TMP_Text nameText;
+    public TMP_Text priceText;
+    public Image icon;
 
-    public Item Item { get; private set; }
+    private Item item;
+    private Action<Item> onLeftClick;
+    private Action<Item> onRightClick;
 
-    public enum SlotContext { Store, Inventory }
-    [SerializeField] private SlotContext context;
-
-    public System.Action<Item> OnLeftClick;
-    public System.Action<Item> OnRightClick;
-
-    public void SetData(Item item, int? cantidad = null)
+    public void Setup(Item newItem, Action<Item> leftClick, Action<Item> rightClick)
     {
-        Item = item;
-        if (icon) icon.sprite = item.Sprite;
-        if (nameText) nameText.text = item.Nombre;
-        if (priceText) priceText.text = "$" + item.Precio;
-        if (qtyText) qtyText.text = cantidad.HasValue ? "x" + cantidad.Value : "";
+        item = newItem;
+        onLeftClick = leftClick;
+        onRightClick = rightClick;
+
+        nameText.text = item.Name;
+        priceText.text = $"$ {item.Price}";
+        // icon.sprite = ... // Opcional si tenés imágenes para los ítems
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (Item == null) return;
-
-        if (eventData.button == PointerEventData.InputButton.Left)
-            OnLeftClick?.Invoke(Item);
-        else if (eventData.button == PointerEventData.InputButton.Right)
-            OnRightClick?.Invoke(Item);
+        if (eventData.button == PointerEventData.InputButton.Left) onLeftClick?.Invoke(item);
+        else if (eventData.button == PointerEventData.InputButton.Right) onRightClick?.Invoke(item);
     }
 }

@@ -1,115 +1,64 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using MyLinkedList;
-using System.Linq;
+using System.Collections.Generic;
 
 public class StoreUI : MonoBehaviour
 {
-    [Header("Refs Lógicas")]
-    [SerializeField] private Store store;
-    [SerializeField] private Wallet wallet;
-    [SerializeField] private PlayerInventory playerInv;
+    [Header("UI References")]
+    public Transform contentParent;
+    public GameObject itemSlotPrefab;
+    public TMP_Text moneyText;
+    public TMP_Dropdown dropdownSort;
 
-    [Header("UI")]
-    [SerializeField] private Transform contentStore;   // contenedor de slots
-    [SerializeField] private GameObject slotPrefab;    // Prefab con ItemSlotUI
-    [SerializeField] private TMP_Dropdown sortDropdown;
-    [SerializeField] private TMP_Text moneyText;
-    [SerializeField] private TMP_Text feedbackText;    // mensajes breves (opcional)
+    private Store store;
+    private PlayerInventory player;
 
-    private void Start()
+    void Start()
     {
-        if (wallet != null)
-        {
-            wallet.MoneyChanged += OnMoneyChanged;
-            OnMoneyChanged(wallet.Dinero);
-        }
+        // Inicializar catálogo
+        store = new Store();
+        store.AddItem(new Item { Id = 1, Name = "Espada", Price = 100, Rarity = Rarity.Common, Type = ItemType.Weapon });
+        store.AddItem(new Item { Id = 2, Name = "Poción", Price = 50, Rarity = Rarity.Uncommon, Type = ItemType.Consumable });
+        store.AddItem(new Item { Id = 3, Name = "Armadura", Price = 150, Rarity = Rarity.Rare, Type = ItemType.Armor });
 
-        if (sortDropdown != null)
-        {
-            sortDropdown.ClearOptions();
-            sortDropdown.AddOptions(new System.Collections.Generic.List<string> {
-                "ID ↑", "ID ↓", "Nombre A-Z", "Nombre Z-A", "Precio ↑", "Precio ↓", "Rareza ↑", "Rareza ↓", "Tipo ↑", "Tipo ↓"
-            });
-            sortDropdown.onValueChanged.AddListener(_ => Redibujar());
-        }
+        // Inicializar jugador
+        player = new PlayerInventory(500);
 
-        Redibujar();
+        // Configurar dropdown
+        dropdownSort.onValueChanged.AddListener(_ => RefreshItems());
+
+        RefreshMoney();
+        RefreshItems();
     }
 
-    private void OnDestroy()
+    private void RefreshMoney()
     {
-        if (wallet != null) wallet.MoneyChanged -= OnMoneyChanged;
+        moneyText.text = $"Dinero: ${player.Money}";
     }
 
-    private void OnMoneyChanged(int nuevo) => moneyText.text = "$ " + nuevo;
-
-    private void ClearContent()
+    private void RefreshItems()
     {
-        for (int i = contentStore.childCount - 1; i >= 0; i--)
-            Destroy(contentStore.GetChild(i).gameObject);
-    }
+        foreach (Transform child in contentParent)
+            Destroy(child.gameObject);
 
-    private MyList<Item> ObtenerItemsOrdenados()
-    {
-        var items = store.GetItems(); // MyList<Item>
-
-        // Convertimos a IEnumerable para ordenar, luego volvemos a MyList
-        System.Collections.Generic.IEnumerable<Item> seq = items;
-
-        switch (sortDropdown?.value ?? 0)
+        string sortKey = dropdownSort.options[dropdownSort.value].text;
+        foreach (var item in store.GetSorted(sortKey))
         {
-            case 0: seq = seq.OrderBy(i => i.ID); break;
-            case 1: seq = seq.OrderByDescending(i => i.ID); break;
-            case 2: seq = seq.OrderBy(i => i.Nombre); break;
-            case 3: seq = seq.OrderByDescending(i => i.Nombre); break;
-            case 4: seq = seq.OrderBy(i => i.Precio); break;
-            case 5: seq = seq.OrderByDescending(i => i.Precio); break;
-            case 6: seq = seq.OrderBy(i => i.Rareza); break;
-            case 7: seq = seq.OrderByDescending(i => i.Rareza); break;
-            case 8: seq = seq.OrderBy(i => i.Tipo); break;
-            case 9: seq = seq.OrderByDescending(i => i.Tipo); break;
-            default: break;
-        }
-
-        var salida = new MyList<Item>();
-        foreach (var it in seq) salida.Add(it);
-        return salida;
-    }
-
-    public void Redibujar()
-    {
-        ClearContent();
-        var list = ObtenerItemsOrdenados();
-
-        foreach (var item in list)
-        {
-            var go = Instantiate(slotPrefab, contentStore);
-            var slot = go.GetComponent<ItemSlotUI>();
-            slot.SetData(item);
-            slot.OnLeftClick = OnComprarClick; // Izquierdo = Comprar
-            slot.OnRightClick = _ => MostrarFeedback("Usá click izquierdo para comprar.");
+            var slot = Instantiate(itemSlotPrefab, contentParent);
+            slot.GetComponent<ItemSlotUI>().Setup(item, OnLeftClickBuy, OnRightClickSell);
         }
     }
 
-    private void OnComprarClick(Item item)
+    private void OnLeftClickBuy(Item item)
     {
-        if (!wallet.PuedePagar(item.Precio))
-        {
-            MostrarFeedback("Dinero insuficiente.");
-            return;
-        }
-
-        wallet.Pagar(item.Precio);
-        playerInv.Agregar(item, 1);
-        MostrarFeedback($"Compraste {item.Nombre}.");
+        if (player.Buy(item)) RefreshMoney();
+        else Debug.Log("No tienes suficiente dinero");
     }
 
-    private void MostrarFeedback(string msg)
+    private void OnRightClickSell(Item item)
     {
-        if (feedbackText == null) return;
-        feedbackText.text = msg;
-        // Podrías disparar una corrutina para limpiar el mensaje a los 2s.
+        if (player.Sell(item)) RefreshMoney();
+        else Debug.Log("No tienes ese ítem en tu inventario");
     }
 }
