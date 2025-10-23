@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 820.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 87
+  controlID: 39
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -454,9 +454,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 6eaa0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 06befeff04bffeff70cdfeffeed7feff16d9feff10dafeff5adbfeffcadcfeff48e3feff5ee4feff02ecfeffc6ecfeffe4eefeffdaf3feffdcf3feff6cf8feff90f8feff3cf9feff38fafeffdafafeffa8fbfeff4afcfeff0a01ffffac01ffff6e02ffffe403ffff0806ffffb006ffff7207ffff769dffff909dffffa49dffff08cfffffdad7ffffdafaffff00a7000004a70000dcc300000cc4000074c6000024c9000098cc0000facc000030d00000a4d100002ed50000acd5000024d90000c6d90000
+      m_ExpandedIDs: 42f3ffff18f4ffffb8f9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Trabajos Practicos/MenuPrincipal
+    - Assets/Trabajos Practicos/TP 05/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1188,16 +1188,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Trabajos Practicos/MenuPrincipal
+  - Assets/Trabajos Practicos/TP 05/Scenes
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\juanm\OneDrive\Documentos\GitHub\Grupo_08_Hruby-Noriega-Di-Lorenzo\Grupo08_Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 136.60004}
-    m_SelectedIDs: faa70000
-    m_LastClickedID: 43002
-    m_ExpandedIDs: 0000000068a700006aa700006ca700006ea7000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 143}
+    m_SelectedIDs: 48a90000
+    m_LastClickedID: 43336
+    m_ExpandedIDs: 0000000026a70000c8a80000caa80000cca80000cea8000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1226,7 +1226,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000068a700006aa700006ca700006ea70000
+    m_ExpandedIDs: 00000000c8a80000caa80000cca80000cea80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
