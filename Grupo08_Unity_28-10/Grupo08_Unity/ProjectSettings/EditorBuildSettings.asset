@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Trabajos Practicos/TP 05/Scenes/Ejercicio_07_Recursion.unity
     guid: 958bde6ae8628f34ea05dd87743e0d83
-  - enabled: 1
+  - enabled: 0
     path: Assets/Trabajos Practicos/TP 06/Scenes/Ejercicio_10_MyABBTree.unity
     guid: d4b5c9d796769f74ea17747135f45e6d
   - enabled: 1

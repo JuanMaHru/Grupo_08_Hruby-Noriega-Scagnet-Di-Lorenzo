@@ -6,8 +6,8 @@ namespace MyLinkedList
 {
     public class MyList<T> : IEnumerable<T>
     {
-        private MyNode<T> root;  // Primer nodo
-        private MyNode<T> tail;  // Último nodo
+        private MyNode<T> root;  
+        private MyNode<T> tail;  
 
         public int Count { get; private set; }
 
@@ -68,10 +68,8 @@ namespace MyLinkedList
             if (index < 0 || index > Count)
                 throw new ArgumentOutOfRangeException(nameof(index));
 
-            // Insertar al final → equivalente a Add()
             if (index == Count) { Add(value); return; }
 
-            // Insertar al inicio
             if (index == 0)
             {
                 var newNode = new MyNode<T>(value, null, root);
@@ -82,7 +80,6 @@ namespace MyLinkedList
                 return;
             }
 
-            // Insertar en el medio
             var current = GetNodeAt(index);
             var prev = current.Prev;
             var node = new MyNode<T>(value, prev, current);
@@ -133,8 +130,6 @@ namespace MyLinkedList
             sb.Append(']');
             return sb.ToString();
         }
-
-        // --------------------- MÉTODOS PRIVADOS ---------------------
 
         // Busca un nodo por valor
         private MyNode<T> FindNodeByValue(T value)

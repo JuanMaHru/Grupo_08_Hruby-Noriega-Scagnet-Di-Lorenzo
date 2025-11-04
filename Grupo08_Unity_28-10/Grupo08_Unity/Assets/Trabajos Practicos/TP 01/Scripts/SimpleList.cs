@@ -3,8 +3,8 @@ using System.Text;
 
 public class SimpleList<T> : ISimpleList<T>
 {
-    private T[] _items;    // Array interno
-    private int _count;    // Cantidad de elementos reales
+    private T[] _items;   
+    private int _count;    
 
     public SimpleList(int capacity = 4)
     {
@@ -12,10 +12,8 @@ public class SimpleList<T> : ISimpleList<T>
         _count = 0;
     }
 
-    // Propiedad Count: cantidad de elementos reales
     public int Count => _count;
 
-    // Indexador: permite acceder y modificar elementos por índice
     public T this[int index]
     {
         get

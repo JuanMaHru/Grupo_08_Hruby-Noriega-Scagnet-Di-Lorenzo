@@ -5,9 +5,9 @@ using System;
 
 public class MyListTester : MonoBehaviour
 {
-    public TMP_InputField inputValue; // <-- campo editable
-    public TMP_InputField inputIndex; // <-- campo editable
-    public TMP_Text output;           // <-- solo muestra
+    public TMP_InputField inputValue; 
+    public TMP_InputField inputIndex; 
+    public TMP_Text output;           
 
     private MyList<string> list = new MyList<string>();
 
