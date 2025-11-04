@@ -55,7 +55,7 @@ public class MenuDeEscenas : MonoBehaviour
 
     public void CargarEjercicio17()
     {
-        SceneManager.LoadScene("Ejercicio_17_MapaEspacial");
+        SceneManager.LoadScene("Ejercicio17_MapaEspacial");
     }
 
     public void Salir()
