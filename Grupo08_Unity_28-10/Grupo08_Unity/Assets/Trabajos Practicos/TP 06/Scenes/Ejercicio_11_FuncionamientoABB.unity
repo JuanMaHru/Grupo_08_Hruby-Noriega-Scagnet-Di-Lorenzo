@@ -1730,8 +1730,8 @@ MonoBehaviour:
   edgeSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   edgeColor: {r: 0, g: 0, b: 0, a: 0.5}
   edgeThickness: 4
-  hSpacing: 100
-  vSpacing: 100
+  hSpacing: 150
+  vSpacing: 150
   scrollRect: {fileID: 16159087}
   padding: {x: 80, y: 80}
 --- !u!1 &842982937
