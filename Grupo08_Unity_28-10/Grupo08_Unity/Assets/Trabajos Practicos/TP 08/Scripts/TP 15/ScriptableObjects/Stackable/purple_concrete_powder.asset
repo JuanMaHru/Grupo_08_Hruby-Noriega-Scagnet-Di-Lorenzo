@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1beac478324ddb48ad2d61db3faa795, type: 3}
+  m_Name: purple_concrete_powder
+  m_EditorClassIdentifier: 
+  itemName: purple_concrete_powder
+  icon: {fileID: 4755565496829546757, guid: 9839e55da4837274baf86c6c1cdac36a, type: 3}
+  isStackable: 1

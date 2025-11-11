@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1beac478324ddb48ad2d61db3faa795, type: 3}
+  m_Name: smithing_table
+  m_EditorClassIdentifier: 
+  itemName: smithing_table
+  icon: {fileID: -8138373217472481437, guid: 41d448e78d1879b4997594f0815cf0f7, type: 3}
+  isStackable: 1

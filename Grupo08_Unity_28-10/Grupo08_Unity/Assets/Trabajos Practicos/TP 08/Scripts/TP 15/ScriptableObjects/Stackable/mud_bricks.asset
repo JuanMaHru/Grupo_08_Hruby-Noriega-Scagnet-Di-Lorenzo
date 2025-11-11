@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1beac478324ddb48ad2d61db3faa795, type: 3}
+  m_Name: mud_bricks
+  m_EditorClassIdentifier: 
+  itemName: mud_bricks
+  icon: {fileID: 4462115578392320474, guid: 0414c31135bedf3419a45e43ca4ed707, type: 3}
+  isStackable: 1

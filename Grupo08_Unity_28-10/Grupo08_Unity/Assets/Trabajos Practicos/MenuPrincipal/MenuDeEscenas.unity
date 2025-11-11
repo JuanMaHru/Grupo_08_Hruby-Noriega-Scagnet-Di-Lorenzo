@@ -2388,14 +2388,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1142889084}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1015512037}
         m_TargetAssemblyTypeName: MenuDeEscenas, Assembly-CSharp
-        m_MethodName: CargarEjercicio09
+        m_MethodName: CargarEjercicio15
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

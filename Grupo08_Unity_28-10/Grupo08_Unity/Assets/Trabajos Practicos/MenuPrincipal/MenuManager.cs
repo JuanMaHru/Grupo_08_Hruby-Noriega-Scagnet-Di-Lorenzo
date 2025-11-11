@@ -53,6 +53,12 @@ public class MenuDeEscenas : MonoBehaviour
         SceneManager.LoadScene("Ejercicio_13_HighScore");
     }
 
+    public void CargarEjercicio15()
+    {
+        SceneManager.LoadScene("Ejercicio_15_InventarioDoble");
+    }
+
+
     public void CargarEjercicio17()
     {
         SceneManager.LoadScene("Ejercicio17_MapaEspacial");

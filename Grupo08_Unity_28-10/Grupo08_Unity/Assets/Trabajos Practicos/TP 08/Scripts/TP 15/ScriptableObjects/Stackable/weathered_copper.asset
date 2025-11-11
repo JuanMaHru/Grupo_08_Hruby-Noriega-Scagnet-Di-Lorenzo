@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1beac478324ddb48ad2d61db3faa795, type: 3}
+  m_Name: weathered_copper
+  m_EditorClassIdentifier: 
+  itemName: weathered_copper
+  icon: {fileID: -8024452058240842396, guid: 265f723d43b67d7459f4bb86790f6385, type: 3}
+  isStackable: 1

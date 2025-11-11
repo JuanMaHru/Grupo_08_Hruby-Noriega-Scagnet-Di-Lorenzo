@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1beac478324ddb48ad2d61db3faa795, type: 3}
+  m_Name: ender_pearl
+  m_EditorClassIdentifier: 
+  itemName: ender_pearl
+  icon: {fileID: 4025158215738150314, guid: 0773b89ac8fe4da46b8906c74721e6d2, type: 3}
+  isStackable: 1

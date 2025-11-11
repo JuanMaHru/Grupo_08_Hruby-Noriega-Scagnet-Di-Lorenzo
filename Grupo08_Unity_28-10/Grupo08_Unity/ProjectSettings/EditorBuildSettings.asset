@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Trabajos Practicos/TP 07/Scenes/Ejercicio_13_HighScore.unity
     guid: a324bd7765e93574886074498e068c91
   - enabled: 1
+    path: Assets/Trabajos Practicos/TP 08/Scenes/Ejercicio_15_InventarioDoble.unity
+    guid: 57231c842f56e0e42adee16f88bacc5a
+  - enabled: 1
     path: Assets/Trabajos Practicos/TP 09/Scenes/Ejercicio17_MapaEspacial.unity
     guid: 96513eac0f8ad0b489588d9b262a6b82
   m_configObjects: {}
