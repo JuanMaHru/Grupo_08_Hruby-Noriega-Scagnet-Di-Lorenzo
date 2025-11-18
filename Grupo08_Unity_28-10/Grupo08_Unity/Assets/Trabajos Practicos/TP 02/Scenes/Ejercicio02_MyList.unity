@@ -3534,7 +3534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputValue: {fileID: 2136559038}
-  inputIndex: {fileID: 0}
+  inputIndex: {fileID: 116384751}
   output: {fileID: 996643516}
 --- !u!1 &2136559034
 GameObject:

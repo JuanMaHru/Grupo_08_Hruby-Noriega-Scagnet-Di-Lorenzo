@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FlechaHaciaAtrasPng_0: -1501942915818184903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

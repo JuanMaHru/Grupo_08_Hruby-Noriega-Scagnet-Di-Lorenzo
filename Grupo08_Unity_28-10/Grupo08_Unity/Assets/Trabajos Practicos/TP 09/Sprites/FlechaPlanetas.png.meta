@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FlechaPlanetas_0: -3439618307908610327
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

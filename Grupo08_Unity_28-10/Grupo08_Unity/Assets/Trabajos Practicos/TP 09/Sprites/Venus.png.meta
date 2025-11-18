@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Venus_0: 2994328829104379615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
