@@ -13,7 +13,6 @@ namespace TP02.Store
         [Tooltip("Cargá los ítems acá por Inspector (Opción 1).")]
         [SerializeField] private Item[] initialItems;
 
-        // Catálogo e inventario: diccionarios (Key = ID) como pide el TP.
         public Dictionary<int, Item> catalog = new Dictionary<int, Item>();
         public Dictionary<int, InventoryEntry> playerInventory = new Dictionary<int, InventoryEntry>();
 
@@ -22,8 +21,8 @@ namespace TP02.Store
 
         [Header("UI References")]
         [SerializeField] private Text moneyText;
-        [SerializeField] private Transform storeGrid;     // Content del ScrollView de Store
-        [SerializeField] private Transform inventoryGrid; // Content del ScrollView de Inventario
+        [SerializeField] private Transform storeGrid;     
+        [SerializeField] private Transform inventoryGrid; 
         [SerializeField] private GameObject itemButtonPrefab;
         [SerializeField] private Text sortFieldLabel;
 
@@ -33,7 +32,6 @@ namespace TP02.Store
 
         private void Awake()
         {
-            // Opción 1: cargar catálogo desde el Inspector
             if (initialItems != null)
             {
                 for (int i = 0; i < initialItems.Length; i++)
@@ -52,10 +50,9 @@ namespace TP02.Store
         public void AddToCatalog(Item item)
         {
             if (item == null) return;
-            catalog[item.id] = item; // Key=ID (evita duplicados y permite acceso O(1))
+            catalog[item.id] = item; 
         }
 
-        // ---------- Sorting ----------
         public void CycleSortField()
         {
             currentSort = (SortField)(((int)currentSort + 1) % Enum.GetValues(typeof(SortField)).Length);
@@ -70,7 +67,6 @@ namespace TP02.Store
 
         private Item[] SortedCatalog()
         {
-            // Pasamos diccionario a array para ordenar sin usar List<T>
             var arr = new Item[catalog.Count];
             int k = 0; foreach (var kv in catalog) arr[k++] = kv.Value;
 
@@ -98,7 +94,6 @@ namespace TP02.Store
             };
         }
 
-        // SelectionSort sobre array (sin List<T>)
         private static void SelectionSort<T>(T[] arr, Comparison<T> cmp, bool ascending)
         {
             int dir = ascending ? 1 : -1;
@@ -113,7 +108,6 @@ namespace TP02.Store
             }
         }
 
-        // ---------- Buy / Sell ----------
         public void Buy(int itemId)
         {
             if (!catalog.TryGetValue(itemId, out var item)) return;
@@ -135,7 +129,6 @@ namespace TP02.Store
             if (!playerInventory.TryGetValue(itemId, out var entry)) return;
             if (entry.quantity <= 0) return;
 
-            // Regla simple: 50% del precio al vender
             float sellPrice = Mathf.Max(0.01f, entry.item.price * 0.5f);
             playerMoney += sellPrice;
 
@@ -146,7 +139,6 @@ namespace TP02.Store
             RefreshInventory();
         }
 
-        // ---------- UI Refresh ----------
         public void RefreshAll()
         {
             RefreshMoney();
@@ -179,7 +171,7 @@ namespace TP02.Store
             var items = SortedCatalog();
             for (int i = 0; i < items.Length; i++)
             {
-                var go = Instantiate(itemButtonPrefab, storeGrid); // <-- hijo del Content
+                var go = Instantiate(itemButtonPrefab, storeGrid); 
                 var view = go.GetComponent<ItemButton>();
                 view.BindStoreItem(items[i], this);
             }
@@ -191,13 +183,12 @@ namespace TP02.Store
 
             ClearGrid(inventoryGrid);
 
-            // Pasamos inventario (diccionario) a array para listar
             var arr = new InventoryEntry[playerInventory.Count];
             int k = 0; foreach (var kv in playerInventory) arr[k++] = kv.Value;
 
             for (int i = 0; i < arr.Length; i++)
             {
-                var go = Instantiate(itemButtonPrefab, inventoryGrid); // <-- hijo del Content
+                var go = Instantiate(itemButtonPrefab, inventoryGrid); 
                 var view = go.GetComponent<ItemButton>();
                 view.BindInventoryEntry(arr[i], this);
             }

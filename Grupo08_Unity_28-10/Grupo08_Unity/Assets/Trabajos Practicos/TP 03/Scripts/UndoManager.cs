@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TP03;              // para MyStack<T>
+using TP03;            
 
 namespace TP03.Undo
 {

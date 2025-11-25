@@ -5,14 +5,13 @@ namespace TP03.Undo
     public class MoveWithUndoExample : MonoBehaviour
     {
         [SerializeField] private UndoManager undoManager;
-        [SerializeField] private Transform target;   // Objeto a mover
+        [SerializeField] private Transform target;   
         [SerializeField] private float step = 1f;
 
         private void Update()
         {
             if (undoManager == null || target == null) return;
 
-            // Acciones con flechas/WASD
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
                 undoManager.Execute(new MoveCommand(target, new Vector3(step, 0, 0), "Move +X"));
 
@@ -25,7 +24,6 @@ namespace TP03.Undo
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
                 undoManager.Execute(new MoveCommand(target, new Vector3(0, 0, -step), "Move -Z"));
 
-            // Undo con tecla U (además del botón de UI)
             if (Input.GetKeyDown(KeyCode.U))
                 undoManager.UndoLast();
         }

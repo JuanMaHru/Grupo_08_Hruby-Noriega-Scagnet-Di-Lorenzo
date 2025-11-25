@@ -1,6 +1,6 @@
 using System;
 using System.Text;
-
+/*
 public class SimpleList<T> : ISimpleList<T>
 {
     private T[] _items;   
@@ -30,7 +30,6 @@ public class SimpleList<T> : ISimpleList<T>
         }
     }
 
-    // Agregar un único elemento
     public void Add(T item)
     {
         EnsureCapacity();
@@ -38,7 +37,6 @@ public class SimpleList<T> : ISimpleList<T>
         _count++;
     }
 
-    // Agregar un array de elementos
     public void AddRange(T[] collection)
     {
         foreach (var item in collection)
@@ -47,7 +45,6 @@ public class SimpleList<T> : ISimpleList<T>
         }
     }
 
-    // Remueve la primera ocurrencia de un elemento y devuelve true si lo elimina
     public bool Remove(T item)
     {
         int index = Array.IndexOf(_items, item, 0, _count);
@@ -64,14 +61,12 @@ public class SimpleList<T> : ISimpleList<T>
         return true;
     }
 
-    // Limpia todos los elementos
     public void Clear()
     {
         _items = new T[_items.Length];
         _count = 0;
     }
 
-    // Asegura que siempre haya espacio disponible
     private void EnsureCapacity()
     {
         if (_count >= _items.Length)
@@ -83,7 +78,6 @@ public class SimpleList<T> : ISimpleList<T>
         }
     }
 
-    // Sobrescribe ToString para mostrar elementos separados por comas
     public override string ToString()
     {
         if (_count == 0)
@@ -99,3 +93,4 @@ public class SimpleList<T> : ISimpleList<T>
         return sb.ToString();
     }
 }
+*/

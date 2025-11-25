@@ -19,9 +19,6 @@ namespace TP03
             _count = 0;
         }
 
-        /// <summary>
-        /// Pushes an element onto the stack.
-        /// </summary>
         public void Push(T item)
         {
             if (_count == _items.Length)
@@ -30,9 +27,6 @@ namespace TP03
             _items[_count++] = item;
         }
 
-        /// <summary>
-        /// Pops and returns the last element.
-        /// </summary>
         public T Pop()
         {
             if (_count == 0)
@@ -43,9 +37,6 @@ namespace TP03
             return item;
         }
 
-        /// <summary>
-        /// Returns the last element without removing it.
-        /// </summary>
         public T Peek()
         {
             if (_count == 0)
@@ -53,18 +44,12 @@ namespace TP03
             return _items[_count - 1];
         }
 
-        /// <summary>
-        /// Clears the stack.
-        /// </summary>
         public void Clear()
         {
             _items = new T[8];
             _count = 0;
         }
 
-        /// <summary>
-        /// Converts the stack into an array.
-        /// </summary>
         public T[] ToArray()
         {
             T[] result = new T[_count];
@@ -73,9 +58,6 @@ namespace TP03
             return result;
         }
 
-        /// <summary>
-        /// Returns the stack content as a string.
-        /// </summary>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -89,9 +71,6 @@ namespace TP03
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Tries to pop the last element safely.
-        /// </summary>
         public bool TryPop(out T item)
         {
             if (_count == 0)
@@ -104,9 +83,6 @@ namespace TP03
             return true;
         }
 
-        /// <summary>
-        /// Tries to peek the last element safely.
-        /// </summary>
         public bool TryPeek(out T item)
         {
             if (_count == 0)

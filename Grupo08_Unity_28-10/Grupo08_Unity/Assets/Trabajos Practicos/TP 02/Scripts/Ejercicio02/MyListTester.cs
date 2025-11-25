@@ -9,11 +9,11 @@ public class MyListTester : MonoBehaviour
     public TMP_InputField inputIndex; 
     public TMP_Text output;           
 
-    private MyList<string> list = new MyList<string>();
+    private MyList<string> lista = new MyList<string>();
 
     public void BtnAdd()
     {
-        list.Add(inputValue.text);
+        lista.Add(inputValue.text);
         Show("Add");
     }
 
@@ -21,16 +21,24 @@ public class MyListTester : MonoBehaviour
     {
         try
         {
-            if (!int.TryParse(inputIndex.text, out int i)) { ShowError("Index inválido"); return; }
-            list.Insert(i, inputValue.text);
+            if (!int.TryParse(inputIndex.text, out int i))
+            { 
+                Debug.Log("Index inválido");
+                return;
+            }
+
+            lista.Insert(i, inputValue.text);
             Show($"Insert at {i}");
         }
-        catch (Exception e) { ShowError(e.Message); }
+        catch (Exception e) 
+        { 
+            Debug.Log(e.Message);
+        }
     }
 
     public void BtnRemoveValue()
     {
-        bool ok = list.Remove(inputValue.text);
+        bool ok = lista.Remove(inputValue.text);
         Show(ok ? $"Remove \"{inputValue.text}\"" : $"\"{inputValue.text}\" not found");
     }
 
@@ -38,11 +46,18 @@ public class MyListTester : MonoBehaviour
     {
         try
         {
-            if (!int.TryParse(inputIndex.text, out int i)) { ShowError("Index inválido"); return; }
-            list.RemoveAt(i);
+            if (!int.TryParse(inputIndex.text, out int i)) 
+            {
+                Debug.Log("Index inválido"); 
+                return;
+            }
+            lista.RemoveAt(i);
             Show($"RemoveAt {i}");
         }
-        catch (Exception e) { ShowError(e.Message); }
+        catch (Exception e) 
+        { 
+            Debug.Log(e.Message);
+        }
     }
 
     public void BtnAddRangeArray()
@@ -51,13 +66,13 @@ public class MyListTester : MonoBehaviour
             ? Array.Empty<string>()
             : inputValue.text.Split(',');
         for (int j = 0; j < parts.Length; j++) parts[j] = parts[j].Trim();
-        list.AddRange(parts);
+        lista.AddRange(parts);
         Show("AddRange(T[])");
     }
 
     public void BtnClear()
     {
-        list.Clear();
+        lista.Clear();
         Show("Clear");
     }
 
@@ -65,12 +80,6 @@ public class MyListTester : MonoBehaviour
 
     private void Show(string action)
     {
-        output.text = $"{action}\nCount: {list.Count}\nEmpty: {list.IsEmpty()}\nList: {list}";
-    }
-
-    private void ShowError(string msg)
-    {
-        output.text = $"<color=#ff6666><b>Error:</b> {msg}</color>\n\n" +
-                      $"Count: {list.Count}\nEmpty: {list.IsEmpty()}\nList: {list}";
+        output.text = $"{action}\nCount: {lista.Count}\nEmpty: {lista.IsEmpty()}\nList: {lista}";
     }
 }

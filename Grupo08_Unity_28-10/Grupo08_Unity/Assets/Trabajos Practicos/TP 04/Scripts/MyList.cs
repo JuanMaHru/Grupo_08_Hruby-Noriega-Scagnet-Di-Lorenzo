@@ -39,8 +39,6 @@ namespace TP04.Data
             (list._items[i], list._items[j]) = (list._items[j], list._items[i]);
         }
 
-        // --------- SORTS (agregado TP04) ---------
-
         public void BubbleSort(Comparison<T> cmp, bool ascending = true)
         {
             if (cmp == null) throw new ArgumentNullException(nameof(cmp));

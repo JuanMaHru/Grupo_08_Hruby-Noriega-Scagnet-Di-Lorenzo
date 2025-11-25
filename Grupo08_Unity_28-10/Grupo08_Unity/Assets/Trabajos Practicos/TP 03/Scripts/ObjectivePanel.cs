@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TP03;                    // para MyQueue<T>
+using TP03;                    
 using TP03.Objectives;
 
 namespace TP03.Objectives
@@ -19,7 +19,6 @@ namespace TP03.Objectives
             if (completeButton != null) completeButton.onClick.AddListener(CompleteCurrentObjective);
         }
 
-        // Llenar la cola desde el editor o por código
         public void Initialize(Objective[] objectives)
         {
             foreach (var obj in objectives)

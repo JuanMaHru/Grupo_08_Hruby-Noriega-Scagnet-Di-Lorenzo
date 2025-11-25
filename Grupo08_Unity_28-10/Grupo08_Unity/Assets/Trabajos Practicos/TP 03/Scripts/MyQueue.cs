@@ -23,9 +23,6 @@ namespace TP03
             _count = 0;
         }
 
-        /// <summary>
-        /// Adds an element at the end of the queue.
-        /// </summary>
         public void Enqueue(T item)
         {
             if (_count == _items.Length)
@@ -36,9 +33,6 @@ namespace TP03
             _count++;
         }
 
-        /// <summary>
-        /// Removes and returns the first element of the queue.
-        /// </summary>
         public T Dequeue()
         {
             if (_count == 0)
@@ -51,9 +45,6 @@ namespace TP03
             return item;
         }
 
-        /// <summary>
-        /// Returns the first element without removing it.
-        /// </summary>
         public T Peek()
         {
             if (_count == 0)
@@ -61,9 +52,6 @@ namespace TP03
             return _items[_head];
         }
 
-        /// <summary>
-        /// Clears the queue.
-        /// </summary>
         public void Clear()
         {
             _items = new T[8];
@@ -72,9 +60,6 @@ namespace TP03
             _count = 0;
         }
 
-        /// <summary>
-        /// Converts the queue into an array.
-        /// </summary>
         public T[] ToArray()
         {
             T[] result = new T[_count];
@@ -83,9 +68,6 @@ namespace TP03
             return result;
         }
 
-        /// <summary>
-        /// Returns the queue content as a string.
-        /// </summary>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -99,9 +81,6 @@ namespace TP03
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Tries to remove and return the first element safely.
-        /// </summary>
         public bool TryDequeue(out T item)
         {
             if (_count == 0)
@@ -114,9 +93,6 @@ namespace TP03
             return true;
         }
 
-        /// <summary>
-        /// Tries to peek the first element safely.
-        /// </summary>
         public bool TryPeek(out T item)
         {
             if (_count == 0)
